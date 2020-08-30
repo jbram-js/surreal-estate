@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import NumericInput from "react-numeric-input";
 import "../styles/AddProperty.css";
 import axios from "axios";
+import Alert from "./Alert";
 
 const AddProperty = (Props) => {
   const initialState = {
@@ -14,16 +14,35 @@ const AddProperty = (Props) => {
       city: "Manchester",
       email: "",
     },
+    alert: {
+      message: "",
+      isSuccess: false,
+    },
   };
   const [fields, setFields] = useState(initialState.fields);
+  const [alert, setAlert] = useState(initialState.alert);
 
   const postProperty = async () => {
-    await axios.post("http://localhost:4000/api/v1/PropertyListing", fields);
-    console.log("posted");
+    await axios
+      .post("http://localhost:4000/api/v1/PropertyListing", fields)
+      .then(() => {
+        setAlert({
+          message: "Property Added",
+          isSuccess: true,
+        });
+        console.log("hello");
+      })
+      .catch(() => {
+        setAlert({
+          message: "Server error. Please try again later.",
+          isSuccess: false,
+        });
+      });
   };
 
   const handleAddProperty = (event) => {
     event.preventDefault();
+    setAlert({ message: "", isSuccess: false });
     postProperty();
   };
 
@@ -35,6 +54,7 @@ const AddProperty = (Props) => {
     <div className="AddProperty">
       Add Property Page
       <form onSubmit={handleAddProperty}>
+        <Alert message={alert.message} success={alert.isSuccess} />
         <label htmlFor="title">
           Description
           <input
