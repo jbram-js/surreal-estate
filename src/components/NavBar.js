@@ -6,9 +6,11 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <ul className="navbar-links">
-        <li className="navbar-links-item">Surreal Estate</li>
         <li className="navbar-links-item">
-          <Link to="/">View Properties</Link>
+          <Link to="/">Surreal Estate</Link>
+        </li>
+        <li className="navbar-links-item">
+          <Link to="/properties">View Properties</Link>
         </li>
         <li className="navbar-links-item">
           <Link to="/add-property">Add a Property</Link>
