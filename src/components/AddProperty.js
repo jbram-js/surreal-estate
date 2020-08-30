@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import NumericInput from "react-numeric-input";
 import "../styles/AddProperty.css";
+import axios from "axios";
 
 const AddProperty = (Props) => {
   const initialState = {
@@ -16,9 +17,14 @@ const AddProperty = (Props) => {
   };
   const [fields, setFields] = useState(initialState.fields);
 
+  const postProperty = async () => {
+    await axios.post("http://localhost:4000/api/v1/PropertyListing", fields);
+    console.log("posted");
+  };
+
   const handleAddProperty = (event) => {
     event.preventDefault();
-    console.log(fields);
+    postProperty();
   };
 
   const handleFieldChange = (event) => {
@@ -30,7 +36,7 @@ const AddProperty = (Props) => {
       Add Property Page
       <form onSubmit={handleAddProperty}>
         <label htmlFor="title">
-          Title
+          Description
           <input
             id="title"
             name="title"
@@ -63,7 +69,6 @@ const AddProperty = (Props) => {
           <input
             name="bedrooms"
             type="number"
-            placeholder="Enter number of bedrooms"
             min={1}
             value={fields.bedrooms}
             onChange={handleFieldChange}
@@ -75,7 +80,6 @@ const AddProperty = (Props) => {
           <input
             name="bathrooms"
             type="number"
-            placeholder="Enter number of bathrooms"
             min={1}
             value={fields.bathrooms}
             onChange={handleFieldChange}
@@ -87,7 +91,6 @@ const AddProperty = (Props) => {
           <input
             name="price"
             type="number"
-            placeholder="Enter property price"
             step={500}
             value={fields.price}
             onChange={handleFieldChange}
