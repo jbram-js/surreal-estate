@@ -6,6 +6,7 @@ import Properties from "./Properties";
 import AddProperty from "./AddProperty";
 import NavBar from "./NavBar";
 import Home from "./Home";
+
 const App = () => {
   return (
     <div className="App">
