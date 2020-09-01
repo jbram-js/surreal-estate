@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -21,6 +22,11 @@ const PropertyCard = ({
 }) => {
   return (
     <div className="PropertyCard">
+      <img
+        className="placeholder-img"
+        src="https://picsum.photos/id/1040/300/200"
+        alt="placeholder"
+      />
       <div className="property-info">
         <div className="property-items">{title}</div>
         <div className="property-items">{type}</div>
@@ -40,8 +46,8 @@ const PropertyCard = ({
           <FontAwesomeIcon icon={faMapPin} />
           {city}
         </div>
-        <a href={`mailto=${email}`}>
-          <button className="email-to-button" type="submit" data-testid="email">
+        <a href={`mailto:${email}`}>
+          <button className="email-to-button" type="submit">
             <FontAwesomeIcon icon={faPaperPlane} />
             Email
           </button>
