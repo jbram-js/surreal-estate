@@ -1,12 +1,12 @@
 import React from "react";
-import "../styles/App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import Properties from "./Properties";
 import AddProperty from "./AddProperty";
 import NavBar from "./NavBar";
 import Home from "./Home";
-import PropertyCard from "./PropertyCard";
+
+import "../styles/App.css";
 
 const App = () => {
   return (

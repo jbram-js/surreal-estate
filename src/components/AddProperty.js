@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import "../styles/AddProperty.css";
 import axios from "axios";
 import Alert from "./Alert";
 
-const AddProperty = (Props) => {
+import "../styles/AddProperty.css";
+
+const AddProperty = () => {
   const initialState = {
     fields: {
       title: "",
