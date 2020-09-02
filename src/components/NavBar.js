@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 import "../styles/NavBar.css";
 
 const NavBar = () => {
@@ -8,13 +9,20 @@ const NavBar = () => {
     <div className="navbar">
       <ul className="navbar-links">
         <li className="navbar-links-item">
-          <Link to="/">Surreal Estate</Link>
+          <Link to="/" className="link">
+            <FontAwesomeIcon icon={faBuilding} className="building-icon" />
+            Surreal Estate
+          </Link>
         </li>
         <li className="navbar-links-item">
-          <Link to="/properties">View Properties</Link>
+          <Link to="/properties" className="link">
+            View Properties
+          </Link>
         </li>
         <li className="navbar-links-item">
-          <Link to="/add-property">Add a Property</Link>
+          <Link to="/add-property" className="link">
+            Add a Property
+          </Link>
         </li>
       </ul>
     </div>
