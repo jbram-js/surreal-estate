@@ -11,7 +11,7 @@ const AddProperty = () => {
       type: "Flat",
       bedrooms: 1,
       bathrooms: 1,
-      price: 50000,
+      price: 0,
       city: "Manchester",
       email: "",
     },
@@ -48,7 +48,10 @@ const AddProperty = () => {
   };
 
   const handleFieldChange = (event) => {
-    setFields({ ...fields, [event.target.name]: event.target.value });
+    setFields({
+      ...fields,
+      [event.target.name]: event.target.value,
+    });
   };
 
   return (
@@ -112,7 +115,7 @@ const AddProperty = () => {
           <input
             name="price"
             type="number"
-            step={500}
+            step={1000}
             value={fields.price}
             onChange={handleFieldChange}
             required
